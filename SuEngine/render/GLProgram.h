@@ -21,13 +21,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#include <list>
 #include "glad/glad.h"
 
-class GLProgram
+#include "../SuEngine.h"
+
+/*
+An OpenGL program class, as a big container for shaders;
+Some like to call it Technique, I decide to call it GLProgram, because more like Opengl program;
+*/
+class SU_API GLProgram
 {
 public:
-
 	GLProgram();
 
 	virtual ~GLProgram();
@@ -36,9 +40,7 @@ public:
 
 	void Enable();
 
-protected:
-
-	bool AddShader(GLenum ShaderType, const char* pFilename);
+	GLuint AddShader(GLenum ShaderType, const char* pFilename, bool deleteShaderAdded = true);
 
 	bool Finalize();
 
@@ -46,13 +48,7 @@ protected:
 
 	GLint GetProgramParam(GLint param);
 
-	GLuint m_shaderProg;
-
-private:
-
-	typedef std::list<GLuint> ShaderObjList;
-	ShaderObjList m_shaderObjList;
+	GLuint GetProgram() { return m_program; }
+protected:
+	GLuint m_program;
 };
-
-#endif	/* TECHNIQUE_H */
-
