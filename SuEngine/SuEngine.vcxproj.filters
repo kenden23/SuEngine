@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="SuEngine.cpp" />
+    <ClCompile Include="render\ogldev_util.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\technique.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="render\GLProgram.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SuEngine.h" />
+    <ClInclude Include="render\ogldev_util.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="render\technique.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="file\SuFile.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="render\GLProgram.h">
+      <Filter>render</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="render">
+      <UniqueIdentifier>{1cb91ae3-696a-4e33-ab1f-a06aa626e3f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{ee2cd6f4-e0fd-4f9a-85d7-d6c124575938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{bba3825c-f2c4-481a-af42-fc5a65488a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file">
+      <UniqueIdentifier>{376d3364-b301-48c3-85de-1089c57c4003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="event">
+      <UniqueIdentifier>{8adb1d3e-2b53-4ff9-a87d-af3b51a25410}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
