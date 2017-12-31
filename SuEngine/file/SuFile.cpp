@@ -20,11 +20,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#pragma once
 
-#include <string>
-
-#include "../SuEngine.h"
+#include "SuFile.h"
 
 namespace Su
 {
@@ -32,10 +29,37 @@ namespace Su
 namespace file
 {
 
-bool SU_API read(std::string &outStr, const char *fileName);
+SU_API bool read(std::string &outStr, const char *fileName)
+{
+	char *tmp = read(fileName);
+	if (!tmp)
+	{
+		return false;
+	}
+	outStr = tmp;
+	free(tmp);
+	return true;
+}
 
-/// @return char *, memory is created by malloc, so free it with free(char *)
-SU_API char *read(const char *fileName);
+SU_API char * read(const char *fileName)
+{
+	FILE *fp = fopen(fileName, "r");
+	if (!fp) return nullptr;
+
+	fseek(fp, 0, SEEK_END);
+	int len = ftell(fp);
+	if (len < 1)
+	{
+		return nullptr;
+	}
+
+	rewind(fp);
+	char *tmp = (char *)malloc(sizeof(char) * (len + 1));
+	tmp[len] = '\0';
+	fread(tmp, sizeof(char), len, fp);
+	fclose(fp);
+	return tmp;
+}
 
 }
 
