@@ -122,7 +122,6 @@ bool GLProgram::Finalize()
 		fprintf(stderr, "Invalid shader program: '%s'\n", ErrorLog);
 		//   return false;
 	}
-
 	return GLCheckError();
 }
 

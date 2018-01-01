@@ -2,29 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="SuEngine.cpp" />
-    <ClCompile Include="render\ogldev_util.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\technique.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
     <ClCompile Include="render\GLProgram.cpp">
       <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="file\SuFile.cpp">
+      <Filter>file</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuEngine.h" />
-    <ClInclude Include="render\ogldev_util.h">
-      <Filter>render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\technique.h">
-      <Filter>render</Filter>
-    </ClInclude>
     <ClInclude Include="file\SuFile.h">
       <Filter>file</Filter>
     </ClInclude>
     <ClInclude Include="render\GLProgram.h">
       <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\macros.h">
+      <Filter>utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

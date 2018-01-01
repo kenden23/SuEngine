@@ -84,13 +84,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SU_ENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../Deps/glfw/deps;../Deps/glm/glm;../Deps/glfw/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SU_ENGINE_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../Deps/glm/glm;../Deps/glfw/include;../Deps/glew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <NoEntryPoint>false</NoEntryPoint>
-      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../Deps/glew;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,14 +122,12 @@
   <ItemGroup>
     <ClInclude Include="file\SuFile.h" />
     <ClInclude Include="render\GLProgram.h" />
-    <ClInclude Include="render\ogldev_util.h" />
-    <ClInclude Include="render\technique.h" />
     <ClInclude Include="SuEngine.h" />
+    <ClInclude Include="utils\macros.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="file\SuFile.cpp" />
     <ClCompile Include="render\GLProgram.cpp" />
-    <ClCompile Include="render\ogldev_util.cpp" />
-    <ClCompile Include="render\technique.cpp" />
     <ClCompile Include="SuEngine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

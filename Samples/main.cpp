@@ -19,11 +19,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+#include "GL/glew.h"
 
-#include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
-// include this header to get better hide for gl functions
+
+// include this header to get better hint for gl functions
 // or include this header to the visual assist c/c++ directories
 //#include "GL/glext.h"
 
@@ -37,6 +38,8 @@ GLFWwindow* window;
 // Include GLM
 #include "glm.hpp"
 using namespace glm;
+
+#include "render/GLProgram.h"
 
 int main(void)
 {
@@ -64,9 +67,14 @@ int main(void)
 	}
 	glfwMakeContextCurrent(window);
 
-	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-	
-	
+	// Initialize GLEW
+	glewExperimental = true; // Needed for core profile
+	if (glewInit() != GLEW_OK) {
+		fprintf(stderr, "Failed to initialize GLEW\n");
+		getchar();
+		glfwTerminate();
+		return -1;
+	}	
 
 	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -93,6 +101,13 @@ int main(void)
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+
+	GLProgram glProgram;
+	glProgram.Init();
+	glProgram.AddShader(GL_VERTEX_SHADER, "shaders/shader.vs");
+	glProgram.AddShader(GL_FRAGMENT_SHADER, "shaders/shader.fs");
+	glProgram.Finalize();
+	glProgram.Enable();
 	
 	do {
 

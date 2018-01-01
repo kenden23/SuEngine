@@ -4,22 +4,13 @@
     <Filter Include="SimpleTest">
       <UniqueIdentifier>{21255293-d5c1-42c9-af8e-2929a52df7ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="glad">
-      <UniqueIdentifier>{5cf7cd21-3b51-41dd-80f4-c242a9ce91a2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="..\..\..\OpenGL\glfw_src\glfw-3.2.1\deps\glad.c">
-      <Filter>glad</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTest\Triangle.h">
       <Filter>SimpleTest</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\OpenGL\glfw_src\glfw-3.2.1\deps\glad\glad.h">
-      <Filter>glad</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
