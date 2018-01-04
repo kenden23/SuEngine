@@ -89,6 +89,16 @@ void SuFw::init2(int width, int height, const char *title)
 	glfwSetInputMode(m_pWin, GLFW_STICKY_KEYS, GL_TRUE);
 }
 
+void SuFw::glfwSwapPoll()
+{
+	// has to do both
+	// show the back buffer
+	glfwSwapBuffers(m_pWin);
+	// poll events so that, window can go on working,
+	// otherwise it will stuck here. window need to handle something here.
+	glfwPollEvents();
+}
+
 void SuFw::getWinWideHeight(int *width, int *height)
 {
 	glfwGetWindowSize(m_pWin, width, height);
