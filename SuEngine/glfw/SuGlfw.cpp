@@ -99,6 +99,12 @@ void SuFw::glfwSwapPoll()
 	glfwPollEvents();
 }
 
+void SuFw::glfwEnd()
+{
+	// Close OpenGL window and terminate GLFW
+	glfwTerminate();
+}
+
 void SuFw::getWinWideHeight(int *width, int *height)
 {
 	glfwGetWindowSize(m_pWin, width, height);

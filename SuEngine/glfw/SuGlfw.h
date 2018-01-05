@@ -17,6 +17,9 @@ public:
 	
 	void glfwSwapPoll();
 
+	// call this at the end, or cal glfw native functions, like glfwTerminate()
+	void glfwEnd();
+
 	// The same as get m_pWin and use glfw function to get windows wide and height.
 	void getWinWideHeight(int *width, int *height);
 	void getFrameBufWideHeight(int *width, int *height);
