@@ -121,12 +121,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="file\SuFile.h" />
+    <ClInclude Include="glfw\SuGlfw.h" />
     <ClInclude Include="render\GLProgram.h" />
     <ClInclude Include="SuEngine.h" />
-    <ClInclude Include="utils\macros.h" />
+    <ClInclude Include="utils\Macros.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file\SuFile.cpp" />
+    <ClCompile Include="glfw\SuGlfw.cpp" />
     <ClCompile Include="render\GLProgram.cpp" />
     <ClCompile Include="SuEngine.cpp" />
   </ItemGroup>

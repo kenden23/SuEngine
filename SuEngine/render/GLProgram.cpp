@@ -27,7 +27,7 @@ THE SOFTWARE.
 #include "GLProgram.h"
 
 #include "../file/SuFile.h"
-#include "../utils/macros.h"
+#include "../utils/Macros.h"
 
 GLProgram::GLProgram() : m_program(0)
 {

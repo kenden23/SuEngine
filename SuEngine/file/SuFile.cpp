@@ -25,7 +25,6 @@ THE SOFTWARE.
 
 namespace Su
 {
-
 namespace file
 {
 
@@ -62,5 +61,4 @@ SU_API char * read(const char *fileName)
 }
 
 }
-
 }
