@@ -25,3 +25,4 @@ THE SOFTWARE.
 #define GLCheckError() (glGetError() == GL_NO_ERROR)
 
 #define INVALID_UNIFORM_LOCATION 0xffffffff
+
