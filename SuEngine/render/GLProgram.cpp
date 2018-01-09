@@ -27,7 +27,7 @@ THE SOFTWARE.
 #include "GLProgram.h"
 
 #include "../file/SuFile.h"
-#include "../utils/Macros.h"
+#include "../util/Macro.h"
 
 GLProgram::GLProgram() : m_program(0)
 {
@@ -96,7 +96,7 @@ GLuint GLProgram::AddShader(GLenum ShaderType, const char* pFilename, bool delet
 		glDeleteShader(shader);
 		shader = 0;
 	}
-	return shader;
+	return 1;
 }
 
 // After all the shaders have been added to the program call this function
