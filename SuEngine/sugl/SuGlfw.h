@@ -10,12 +10,16 @@ class SU_API SuFw
 	SuFw();
 	~SuFw();
 public:
-	SuFw *GetInstance();
+	static SuFw *GetInstance();
 
 	void basicInit(int width = 1024, int height = 768, const char *title = "SuEngine");
 	void init2(int width = 1024, int height = 768, const char *title = "SuEngine");
+
+	int run(GLFWwindow *pWin);
 	
 	void glfwSwapPoll();
+	bool glfwShouldClose();
+	bool isRunning();
 
 	// call this at the end, or cal glfw native functions, like glfwTerminate()
 	void glfwEnd();
