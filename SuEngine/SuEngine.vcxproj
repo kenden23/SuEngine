@@ -121,16 +121,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="file\SuFile.h" />
-    <ClInclude Include="glfw\SuGlfw.h" />
     <ClInclude Include="render\GLProgram.h" />
     <ClInclude Include="SuEngine.h" />
-    <ClInclude Include="utils\Macros.h" />
+    <ClInclude Include="sugl\SuGlFunc.h" />
+    <ClInclude Include="sugl\SuGlfw.h" />
+    <ClInclude Include="util\Macro.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file\SuFile.cpp" />
-    <ClCompile Include="glfw\SuGlfw.cpp" />
     <ClCompile Include="render\GLProgram.cpp" />
     <ClCompile Include="SuEngine.cpp" />
+    <ClCompile Include="sugl\SuGlFunc.cpp" />
+    <ClCompile Include="sugl\SuGlfw.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
