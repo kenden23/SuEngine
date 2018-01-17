@@ -7,6 +7,8 @@
 #include "glm.hpp"
 #include <vector>
 
+class SegmentObj;
+
 class MultiLinesView
 {
 public:
@@ -40,6 +42,8 @@ public:
 		setClearAllPointsState(false);
 	}
 
+	void mouseCB(GLFWwindow* window, int button, int action, int mods);
+
 	void setAddNewPointState(bool bAdded);
 	inline bool getAddNewPointState() { return m_bAddNewPoint; }
 	// if a new point has been added, then we need to update the buffer
@@ -59,4 +63,6 @@ public:
 
 	Su::VertexArray m_vta;
 	GLProgram m_glProgram;
+
+	SegmentObj *m_pSegment;
 };

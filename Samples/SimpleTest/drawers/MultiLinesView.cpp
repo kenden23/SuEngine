@@ -2,18 +2,33 @@
 
 #include "GL/glext.h"
 
+#include "SegmentObj.h"
+
 MultiLinesView::MultiLinesView() : m_vta(), m_glProgram()
 , m_bAddNewPoint(false)
 , m_bClearAllPoints(false)
 , m_bDeletePoint(false)
 , m_allPoints()
+, m_pSegment(new SegmentObj)
 {
+	m_pSegment->initView();
+	m_pSegment->initShader();
 
+	std::function<void(GLFWwindow* window, int button, int action, int mods)> aFunc = std::bind(
+	&MultiLinesView::mouseCB, this, std::placeholders::_1, std::placeholders::_2,
+		std::placeholders::_3, std::placeholders::_4);
+	EventInst->RegListener(aFunc, EventSys_glfwMouseButtonCallback, "MultiLinesView");
 }
 
 MultiLinesView::~MultiLinesView()
 {
+	EventInst->UnregListener(EventSys_glfwMouseButtonCallback, "MultiLinesView");
 
+	if (m_pSegment)
+	{
+		delete m_pSegment;
+		m_pSegment = nullptr;
+	}
 }
 
 bool MultiLinesView::initView()
@@ -49,6 +64,15 @@ void MultiLinesView::renderView(double dt)
 		return;
 	}
 
+	if (m_pSegment->isShow())
+	{
+		double x, y;
+		SuFw::GetInstance()->get2DGLPosition(&x, &y);
+		m_pSegment->setPosition(1, glm::vec3((float)x, (float)y, 0.f));
+
+		m_pSegment->renderView(dt);
+	}
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vta.vbo);
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
@@ -67,7 +91,18 @@ void MultiLinesView::renderView(double dt)
 void MultiLinesView::addPoint(glm::vec3 &p)
 {
 	m_allPoints.push_back(p);
-	setAddNewPointState(true);
+	if (m_allPoints.size() & 1)
+	{
+		m_pSegment->show(true);
+		m_pSegment->setPosition(0, p);
+		m_pSegment->setPosition(1, p);
+	}
+	else
+	{
+		setAddNewPointState(true);
+
+		m_pSegment->show(false);
+	}
 }
 
 void MultiLinesView::addTwoPoints(glm::vec3 &p1, glm::vec3 &p2)
@@ -100,6 +135,39 @@ bool MultiLinesView::updatePoints()
 		&m_allPoints[0], GL_DYNAMIC_DRAW/*GL_STATIC_DRAW*/);
 
 	return true;
+}
+
+enum MOUSECB_STATE
+{
+	MOUSE_STATE_CLICK,
+	MOUSE_STATE_PRESS,
+	MOUSE_STATE_RELEASE
+};
+
+void MultiLinesView::mouseCB(GLFWwindow* window, int button, int action, int mods)
+{
+	static MOUSECB_STATE curState = MOUSE_STATE_RELEASE;
+	static MOUSECB_STATE lastState = curState;
+
+	switch (button)
+	{
+	case GLFW_MOUSE_BUTTON_LEFT:
+	{
+		if (action == GLFW_PRESS)
+		{
+			double x, y;
+			SuFw::GetInstance()->get2DGLPosition(&x, &y);
+			addPoint(glm::vec3((float)x, (float)y, 0.f));
+		}
+		else if (GLFW_RELEASE == action)
+		{
+
+		}
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void MultiLinesView::setAddNewPointState(bool bAdded)
