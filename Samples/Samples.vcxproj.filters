@@ -4,13 +4,46 @@
     <Filter Include="SimpleTest">
       <UniqueIdentifier>{21255293-d5c1-42c9-af8e-2929a52df7ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SimpleTest\triangles">
+      <UniqueIdentifier>{077d28be-15f0-4ac1-9492-563e18765c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleTest\drawers">
+      <UniqueIdentifier>{3e3f61e3-8193-424c-b39c-7211614f7cf6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleTest\triangles\Triangle.cpp">
+      <Filter>SimpleTest\triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\triangles\TriView.cpp">
+      <Filter>SimpleTest\triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\drawers\MouseDrawLine.cpp">
+      <Filter>SimpleTest\drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\drawers\MultiLinesView.cpp">
+      <Filter>SimpleTest\drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp">
+      <Filter>SimpleTest\drawers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimpleTest\Triangle.h">
-      <Filter>SimpleTest</Filter>
+    <ClInclude Include="SimpleTest\triangles\Triangle.h">
+      <Filter>SimpleTest\triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTest\triangles\TriView.h">
+      <Filter>SimpleTest\triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTest\drawers\MouseDrawLine.h">
+      <Filter>SimpleTest\drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTest\drawers\MultiLinesView.h">
+      <Filter>SimpleTest\drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTest\drawers\SegmentObj.h">
+      <Filter>SimpleTest\drawers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

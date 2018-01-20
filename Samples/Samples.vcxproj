@@ -93,7 +93,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;../Deps/glfw/deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -129,9 +129,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleTest\drawers\MouseDrawLine.cpp" />
+    <ClCompile Include="SimpleTest\drawers\MultiLinesView.cpp" />
+    <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp" />
+    <ClCompile Include="SimpleTest\triangles\Triangle.cpp" />
+    <ClCompile Include="SimpleTest\triangles\TriView.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimpleTest\Triangle.h" />
+    <ClInclude Include="SimpleTest\drawers\MouseDrawLine.h" />
+    <ClInclude Include="SimpleTest\drawers\MultiLinesView.h" />
+    <ClInclude Include="SimpleTest\drawers\SegmentObj.h" />
+    <ClInclude Include="SimpleTest\triangles\Triangle.h" />
+    <ClInclude Include="SimpleTest\triangles\TriView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "MultiLinesView.h"
 
-#include "GL/glext.h"
+//#include "GL/glext.h"
 
 #include "SegmentObj.h"
 

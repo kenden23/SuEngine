@@ -23,7 +23,6 @@ THE SOFTWARE.
 
 #include "GLFW/glfw3.h"
 
-
 // include this header to get better hint for gl functions
 // or include this header to the visual assist c/c++ directories
 //#include "GL/glext.h"
@@ -31,125 +30,93 @@ THE SOFTWARE.
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
-
-// Include GLFW
-GLFWwindow* window;
+#include <thread>
+#include <chrono>
 
 // Include GLM
 #include "glm.hpp"
-using namespace glm;
 
 #include "render/GLProgram.h"
 
+#include "SimpleTest/triangles/Triangle.h"
+#include "SimpleTest/drawers/MultiLinesView.h"
+
 int main(void)
 {
-	// Initialise GLFW
-	if (!glfwInit())
-	{
-		fprintf(stderr, "Failed to initialize GLFW\n");
-		getchar();
-		return -1;
-	}
+	SuFw::GetInstance()->basicInit();
+	GLFWwindow *pWin = SuFw::GetInstance()->getWin();
+	SuFw::GetInstance()->initGlfwEvents();
 
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	//return SuFw::GetInstance()->run(pWin1);
+
+	//return 0;
+
+	Triangle tri;
+	tri.init();
+
+	MultiLinesView mlv;
+	mlv.initView();
+	mlv.initShader();
+
+	// Initialise GLFW
+	//if (!glfwInit())
+	//{
+	//	fprintf(stderr, "Failed to initialize GLFW\n");
+	//	getchar();
+	//	exit(-1);
+	//}
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(1024, 768, "Tutorial 02 - Red triangle", NULL, NULL);
-	if (window == NULL) {
-		fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n");
-		getchar();
-		glfwTerminate();
-		return -1;
-	}
-	glfwMakeContextCurrent(window);
+	//GLFWwindow *pWin = glfwCreateWindow(1024, 780, "12313", NULL, NULL);
+	//if (!pWin) {
+	//	fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 ////compatible. Try the 2.1 version of the tutorials.\n");
+	//	getchar();
+	//	glfwTerminate();
+	//	exit(-1);
+	//}
+	//glfwMakeContextCurrent(pWin);
+	//
+	//// Initialize GLEW
+	//glewExperimental = true; // Needed for core profile
+	//if (glewInit() != GLEW_OK) {
+	//	fprintf(stderr, "Failed to initialize GLEW\n");
+	//	getchar();
+	//	glfwTerminate();
+	//	exit(-2);
+	//}
+	//// Ensure we can capture the escape key being pressed below
+	//glfwSetInputMode(pWin, GLFW_STICKY_KEYS, GL_TRUE);
 
-	// Initialize GLEW
-	glewExperimental = true; // Needed for core profile
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "Failed to initialize GLEW\n");
-		getchar();
-		glfwTerminate();
-		return -1;
-	}	
+	glfwMakeContextCurrent(pWin);
+	glClearColor(.1f, 0.5f, 0.1f, 0.f);
 
-	// Ensure we can capture the escape key being pressed below
-	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+	double dt = 60.0 / 1000.0;
 
-	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	mlv.addTwoPoints(glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
+	mlv.addPoint(glm::vec3(0.f, 0.f, 0.f));
+	mlv.addPoint(glm::vec3(1.f, 0.f, 0.f));
 
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-	
-
-	// Create and compile our GLSL program from the shaders
-	//GLuint programID = LoadShaders("SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader");
-
-
-	static const GLfloat g_vertex_buffer_data[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
-	};
-
-	GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-
-	GLProgram glProgram;
-	glProgram.Init();
-	glProgram.AddShader(GL_VERTEX_SHADER, "shaders/shader.vs");
-	glProgram.AddShader(GL_FRAGMENT_SHADER, "shaders/shader.fs");
-	glProgram.Finalize();
-	glProgram.Enable();
-	
 	do {
-
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// Use our shader
-		//glUseProgram(programID);
+		//tri.update(dt);
 
-		// 1rst attribute buffer : vertices
-		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-		glVertexAttribPointer(
-			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-			3,                  // size
-			GL_FLOAT,           // type
-			GL_FALSE,           // normalized?
-			0,                  // stride
-			(void*)0            // array buffer offset
-		);
+		//tri.render(dt);
 
-		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 3); // 3 indices starting at 0 -> 1 triangle
-		
-		glDisableVertexAttribArray(0);
+		mlv.renderView(dt);
 
 		// Swap buffers
-		glfwSwapBuffers(window);
-		glfwPollEvents();
+		//glfwSwapBuffers(pWin);
+		//glfwPollEvents();
 
+		SuFw::GetInstance()->glfwSwapPoll();
+
+		std::this_thread::sleep_for(std::chrono::duration<double>(dt));
 	} // Check if the ESC key was pressed or the window was closed
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
+	while (SuFw::GetInstance()->isRunning());
 
-	// Cleanup VBO
-	glDeleteBuffers(1, &vertexbuffer);
-	glDeleteVertexArrays(1, &VertexArrayID);
-	
-	//glDeleteProgram(programID);
-
-	// Close OpenGL window and terminate GLFW
-	glfwTerminate();
+	SuFw::GetInstance()->glfwEnd();
 
 	return 0;
 }
