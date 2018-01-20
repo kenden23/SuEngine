@@ -25,6 +25,9 @@ public:
 	// add a point once, add two points two times to form a line
 	// if the total points is odd, the last one will be ignored.
 	void addPoint(glm::vec3 &p);
+	void addOddPointEffect(glm::vec3 &p);
+	void addEvenPointEffect(glm::vec3 &p);
+
 	void addTwoPoints(glm::vec3 &p1, glm::vec3 &p2);
 
 	bool updatePoints();

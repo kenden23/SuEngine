@@ -130,7 +130,7 @@ void SegmentObj::updatePoints()
 
 //#define USING_MAP_BUFFER_RANGE_FOR_OP
 
-#ifdef USING_MAP_BUFFER_RANGE_FOR_OP
+#ifdef USING_MAP_BUFFER_RANGE_FOR_OP // this function work, but cause blink, if update every frame
 	glm::vec3 * p = (glm::vec3 *)glMapBufferRange(
 		GL_ARRAY_BUFFER, 0, sizeof(glm::vec3) * POINT_NUM,
 		GL_MAP_WRITE_BIT/* | GL_MAP_INVALIDATE_BUFFER_BIT*/);

@@ -93,22 +93,32 @@ void MultiLinesView::addPoint(glm::vec3 &p)
 	m_allPoints.push_back(p);
 	if (m_allPoints.size() & 1)
 	{
-		m_pSegment->show(true);
-		m_pSegment->setPosition(0, p);
-		m_pSegment->setPosition(1, p);
+		addOddPointEffect(p);
 	}
 	else
 	{
-		setAddNewPointState(true);
-
-		m_pSegment->show(false);
+		addEvenPointEffect(p);
 	}
+}
+
+void MultiLinesView::addOddPointEffect(glm::vec3 &p)
+{
+	m_pSegment->show(true);
+	m_pSegment->setPosition(0, p);
+	m_pSegment->setPosition(1, p);
+}
+
+void MultiLinesView::addEvenPointEffect(glm::vec3 &p)
+{
+	setAddNewPointState(true);
+	m_pSegment->show(false);
 }
 
 void MultiLinesView::addTwoPoints(glm::vec3 &p1, glm::vec3 &p2)
 {
 	m_allPoints.push_back(p1);
 	m_allPoints.push_back(p2);
+	setAddNewPointState(true);
 }
 
 bool MultiLinesView::updatePoints()
