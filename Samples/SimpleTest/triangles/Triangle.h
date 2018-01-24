@@ -1,10 +1,11 @@
 #pragma once
 
-#include "sugl/SuGlFunc.h"
 #include "sugl/SuGlfw.h"
+#include "sugl/SuGlFunc.h"
 
 #include "TriView.h"
 
+class Camera;
 
 class Triangle :public TriView
 {
@@ -15,7 +16,10 @@ public:
 	bool init();
 	void update(double dt);
 	void render(double dt);
-protected:
 
+protected:
+	bool initCamera();
+
+	Camera *m_pCamera;
 private:
 };

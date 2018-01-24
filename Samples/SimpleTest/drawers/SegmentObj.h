@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sugl/SuGlFunc.h"
 #include "sugl/SuGlfw.h"
+#include "sugl/SuGlFunc.h"
 #include "render/GLProgram.h"
 
 #include "glm.hpp"
-#include <vector>
 
 /*
 Two points to define a segment.
@@ -46,8 +45,6 @@ public:
 	bool m_bNeededUpdate;
 
 	void mouseCB(GLFWwindow* window, int button, int action, int mods);
-
-
 
 	// whether or not need to render,
 	// eg. not data, not line for rendering, that not need for rendering

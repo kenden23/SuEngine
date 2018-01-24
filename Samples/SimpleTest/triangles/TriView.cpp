@@ -17,11 +17,22 @@ TriView::~TriView()
 
 bool TriView::initView()
 {
+	//static const GLfloat g_vertex_buffer_data[] = {
+	//	-1.0f, -1.0f, 0.0f,
+	//	1.0f, -1.0f, 0.0f,
+	//	0.0f,  1.0f, 0.0f,
+	//};
+
 	static const GLfloat g_vertex_buffer_data[] = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f,  1.0f, 0.0f,
+		-10000.f, 0.f, -10000.f,
+		10000.f, 0.f, -10000.f,
+		-10000.f, 0.f, 10000.f
+
+		//10000, 0, 10000,
+		//-10000, 0, 10000,
+		//10000, 0, -10000
 	};
+
 	glGenBuffers(1, &m_vta.vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vta.vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
@@ -35,11 +46,11 @@ bool TriView::initShader()
 	{
 		return false;
 	}
-	if (!m_glProgram.AddShader(GL_VERTEX_SHADER, "shaders/shader.vs"))
+	if (!m_glProgram.AddShader(GL_VERTEX_SHADER, "shaders/shader_trans.vs"))
 	{
 		return false;
 	}
-	if (!m_glProgram.AddShader(GL_FRAGMENT_SHADER, "shaders/shader.fs"))
+	if (!m_glProgram.AddShader(GL_FRAGMENT_SHADER, "shaders/shader_trans.fs"))
 	{
 		return false;
 	}

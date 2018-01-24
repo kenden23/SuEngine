@@ -1,11 +1,12 @@
 #pragma once
+#include <vector>
+
+#include "sugl/SuGlfw.h"
 
 #include "sugl/SuGlFunc.h"
-#include "sugl/SuGlfw.h"
 #include "render/GLProgram.h"
 
 #include "glm.hpp"
-#include <vector>
 
 class SegmentObj;
 

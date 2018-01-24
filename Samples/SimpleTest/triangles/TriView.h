@@ -1,7 +1,7 @@
 #pragma once
 
-#include "sugl/SuGlFunc.h"
 #include "sugl/SuGlfw.h"
+#include "sugl/SuGlFunc.h"
 #include "render/GLProgram.h"
 
 class TriView

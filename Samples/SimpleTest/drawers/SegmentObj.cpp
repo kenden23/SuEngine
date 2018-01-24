@@ -1,6 +1,6 @@
 #include "SegmentObj.h"
 
-#include "GL/glext.h"
+//#include "GL/glext.h"
 
 SegmentObj::SegmentObj() : m_vta(), m_glProgram()
 , m_bNeededUpdate(false)
@@ -176,8 +176,8 @@ void SegmentObj::mouseCB(GLFWwindow* window, int button, int action, int mods)
 			SuFw::GetInstance()->glfwGetCurPos(&sx, &sy);
 			//glfwGetWindowSize(window, &w, &h);
 			SuFw::GetInstance()->getWinWideHeight(&w, &h);
-			float x = sx / (float)w;
-			float y = sy / (float)h;
+			float x = (float)sx / (float)w;
+			float y = (float)sy / (float)h;
 			x = x * 2.f - 1.f;
 			y = 1.f - y;
 			y = y * 2.f - 1.f;

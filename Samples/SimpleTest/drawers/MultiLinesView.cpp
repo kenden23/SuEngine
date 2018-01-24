@@ -84,7 +84,7 @@ void MultiLinesView::renderView(double dt)
 		0,                  // stride
 		(void*)0            // array buffer offset
 	);
-	glDrawArrays(GL_LINES, 0, m_allPoints.size()); // 3 indices starting at 0 -> 1 triangle
+	glDrawArrays(GL_LINES, 0, (GLsizei)m_allPoints.size()); // 3 indices starting at 0 -> 1 triangle
 	glDisableVertexAttribArray(0);
 }
 

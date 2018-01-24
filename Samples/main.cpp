@@ -19,6 +19,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <thread>
+#include <chrono>
+
 #include "GL/glew.h"
 
 #include "GLFW/glfw3.h"
@@ -27,16 +33,11 @@ THE SOFTWARE.
 // or include this header to the visual assist c/c++ directories
 //#include "GL/glext.h"
 
-// Include standard headers
-#include <stdio.h>
-#include <stdlib.h>
-#include <thread>
-#include <chrono>
-
 // Include GLM
 #include "glm.hpp"
 
 #include "render/GLProgram.h"
+#include "sugl/SuWin.h"
 
 #include "SimpleTest/triangles/Triangle.h"
 #include "SimpleTest/drawers/MultiLinesView.h"
@@ -47,74 +48,42 @@ int main(void)
 	GLFWwindow *pWin = SuFw::GetInstance()->getWin();
 	SuFw::GetInstance()->initGlfwEvents();
 
-	//return SuFw::GetInstance()->run(pWin1);
+	//Triangle tri;
+	//tri.init();
+	SuWin suw;
+	suw.init();
 
-	//return 0;
+	//MultiLinesView mlv;
+	//mlv.initView();
+	//mlv.initShader();
 
-	Triangle tri;
-	tri.init();
-
-	MultiLinesView mlv;
-	mlv.initView();
-	mlv.initShader();
-
-	// Initialise GLFW
-	//if (!glfwInit())
-	//{
-	//	fprintf(stderr, "Failed to initialize GLFW\n");
-	//	getchar();
-	//	exit(-1);
-	//}
-
-	// Open a window and create its OpenGL context
-	//GLFWwindow *pWin = glfwCreateWindow(1024, 780, "12313", NULL, NULL);
-	//if (!pWin) {
-	//	fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 ////compatible. Try the 2.1 version of the tutorials.\n");
-	//	getchar();
-	//	glfwTerminate();
-	//	exit(-1);
-	//}
-	//glfwMakeContextCurrent(pWin);
-	//
-	//// Initialize GLEW
-	//glewExperimental = true; // Needed for core profile
-	//if (glewInit() != GLEW_OK) {
-	//	fprintf(stderr, "Failed to initialize GLEW\n");
-	//	getchar();
-	//	glfwTerminate();
-	//	exit(-2);
-	//}
-	//// Ensure we can capture the escape key being pressed below
-	//glfwSetInputMode(pWin, GLFW_STICKY_KEYS, GL_TRUE);
-
-	glfwMakeContextCurrent(pWin);
-	glClearColor(.1f, 0.5f, 0.1f, 0.f);
+	glClearColor(.1f, 0.2f, 0.1f, 0.f);
 
 	double dt = 60.0 / 1000.0;
 
-	mlv.addTwoPoints(glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
-	mlv.addPoint(glm::vec3(0.f, 0.f, 0.f));
-	mlv.addPoint(glm::vec3(1.f, 0.f, 0.f));
+	//mlv.addTwoPoints(glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
+	//mlv.addPoint(glm::vec3(0.f, 0.f, 0.f));
+	//mlv.addPoint(glm::vec3(1.f, 0.f, 0.f));
 
 	do {
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//tri.update(dt);
+		suw.update(dt);
 
 		//tri.render(dt);
+		suw.render(dt);
 
-		mlv.renderView(dt);
-
-		// Swap buffers
-		//glfwSwapBuffers(pWin);
-		//glfwPollEvents();
+		//mlv.renderView(dt);
 
 		SuFw::GetInstance()->glfwSwapPoll();
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(dt));
 	} // Check if the ESC key was pressed or the window was closed
 	while (SuFw::GetInstance()->isRunning());
+	//while (glfwGetKey(pWin, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
+		//!glfwWindowShouldClose(pWin));
 
 	SuFw::GetInstance()->glfwEnd();
 
