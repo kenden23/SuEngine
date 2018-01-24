@@ -1,3 +1,4 @@
+#include "GL/glew.h"
 #include "SuGlFunc.h"
 
 #include <stdio.h>

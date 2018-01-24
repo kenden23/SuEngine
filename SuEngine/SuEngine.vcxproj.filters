@@ -14,6 +14,24 @@
     <ClCompile Include="sugl\SuGlFunc.cpp">
       <Filter>sugl</Filter>
     </ClCompile>
+    <ClCompile Include="event_sys\CListener.cpp">
+      <Filter>event_sys</Filter>
+    </ClCompile>
+    <ClCompile Include="event_sys\EventSys.cpp">
+      <Filter>event_sys</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\Camera.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="controllers\CameraControl.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="util\glmex.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="sugl\SuWin.cpp">
+      <Filter>sugl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuEngine.h" />
@@ -32,6 +50,30 @@
     <ClInclude Include="sugl\SuGlFunc.h">
       <Filter>sugl</Filter>
     </ClInclude>
+    <ClInclude Include="event_sys\CListener.h">
+      <Filter>event_sys</Filter>
+    </ClInclude>
+    <ClInclude Include="event_sys\EventsEnum.h">
+      <Filter>event_sys</Filter>
+    </ClInclude>
+    <ClInclude Include="event_sys\EventSys.h">
+      <Filter>event_sys</Filter>
+    </ClInclude>
+    <ClInclude Include="event_sys\FSM.h">
+      <Filter>event_sys</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\Camera.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="controllers\CameraControl.h">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="util\glmex.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="sugl\SuWin.h">
+      <Filter>sugl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="render">
@@ -43,14 +85,17 @@
     <Filter Include="file">
       <UniqueIdentifier>{376d3364-b301-48c3-85de-1089c57c4003}</UniqueIdentifier>
     </Filter>
-    <Filter Include="event">
-      <UniqueIdentifier>{8adb1d3e-2b53-4ff9-a87d-af3b51a25410}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sugl">
       <UniqueIdentifier>{9e40659c-556f-416c-85ae-48cdf7cd41d2}</UniqueIdentifier>
     </Filter>
     <Filter Include="util">
       <UniqueIdentifier>{bba3825c-f2c4-481a-af42-fc5a65488a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="event_sys">
+      <UniqueIdentifier>{8adb1d3e-2b53-4ff9-a87d-af3b51a25410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{f94aeacf-63a1-4d46-93ff-d298c405cdb7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

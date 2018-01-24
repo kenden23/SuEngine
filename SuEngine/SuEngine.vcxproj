@@ -120,19 +120,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="controllers\CameraControl.h" />
+    <ClInclude Include="controllers\Camera.h" />
+    <ClInclude Include="event_sys\CListener.h" />
+    <ClInclude Include="event_sys\EventsEnum.h" />
+    <ClInclude Include="event_sys\EventSys.h" />
+    <ClInclude Include="event_sys\FSM.h" />
     <ClInclude Include="file\SuFile.h" />
     <ClInclude Include="render\GLProgram.h" />
     <ClInclude Include="SuEngine.h" />
     <ClInclude Include="sugl\SuGlFunc.h" />
     <ClInclude Include="sugl\SuGlfw.h" />
+    <ClInclude Include="sugl\SuWin.h" />
+    <ClInclude Include="util\glmex.h" />
     <ClInclude Include="util\Macro.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controllers\CameraControl.cpp" />
+    <ClCompile Include="controllers\Camera.cpp" />
+    <ClCompile Include="event_sys\CListener.cpp" />
+    <ClCompile Include="event_sys\EventSys.cpp" />
     <ClCompile Include="file\SuFile.cpp" />
     <ClCompile Include="render\GLProgram.cpp" />
     <ClCompile Include="SuEngine.cpp" />
     <ClCompile Include="sugl\SuGlFunc.cpp" />
     <ClCompile Include="sugl\SuGlfw.cpp" />
+    <ClCompile Include="sugl\SuWin.cpp" />
+    <ClCompile Include="util\glmex.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

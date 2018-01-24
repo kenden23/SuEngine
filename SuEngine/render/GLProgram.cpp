@@ -143,6 +143,12 @@ GLint GLProgram::GetUniformLocation(const char* pUniformName)
 	return Location;
 }
 
+
+void GLProgram::SetUniformMat4(GLint loc, glm::mat4 &amat)
+{
+	glUniformMatrix4fv(loc, 1, GL_FALSE, &amat[0][0]);
+}
+
 GLint GLProgram::GetProgramParam(GLint param)
 {
 	GLint ret;

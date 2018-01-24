@@ -25,6 +25,8 @@ THE SOFTWARE.
 
 #include "../SuEngine.h"
 
+#include "glm.hpp"
+
 /*
 An OpenGL program class, as a big container for shaders;
 Some like to call it Technique, I decide to call it GLProgram, because more like Opengl program;
@@ -45,6 +47,7 @@ public:
 	bool Finalize();
 
 	GLint GetUniformLocation(const char* pUniformName);
+	void SetUniformMat4(GLint loc, glm::mat4 &amat);
 
 	GLint GetProgramParam(GLint param);
 
