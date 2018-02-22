@@ -10,6 +10,9 @@
     <Filter Include="SimpleTest\drawers">
       <UniqueIdentifier>{3e3f61e3-8193-424c-b39c-7211614f7cf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SimpleTest\ImageMagickExamples">
+      <UniqueIdentifier>{aab8e689-954a-4479-98c2-8666c70a6651}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -27,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp">
       <Filter>SimpleTest\drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\ImageMagickExamples\SplitPicture.cpp">
+      <Filter>SimpleTest\ImageMagickExamples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

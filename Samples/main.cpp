@@ -42,7 +42,7 @@ THE SOFTWARE.
 #include "SimpleTest/triangles/Triangle.h"
 #include "SimpleTest/drawers/MultiLinesView.h"
 
-int main(void)
+int main__(void)
 {
 	SuFw::GetInstance()->basicInit();
 	GLFWwindow *pWin = SuFw::GetInstance()->getWin();
@@ -81,9 +81,9 @@ int main(void)
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(dt));
 	} // Check if the ESC key was pressed or the window was closed
-	while (SuFw::GetInstance()->isRunning());
-	//while (glfwGetKey(pWin, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		//!glfwWindowShouldClose(pWin));
+	//while (SuFw::GetInstance()->isRunning());
+	while (glfwGetKey(pWin, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
+		!glfwWindowShouldClose(pWin));
 
 	SuFw::GetInstance()->glfwEnd();
 

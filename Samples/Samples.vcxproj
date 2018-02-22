@@ -93,12 +93,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;../Deps/glfw/deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;D:\cpp_projects\OpenGL\ogldev-source\Include\ImageMagick-6;../Deps/glfw/deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;../Deps/glew;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32d.lib;glfw3.lib;SuEngine.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;D:\cpp_projects\OpenGL\ogldev-source\Lib;../Deps/glew;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32d.lib;glfw3.lib;SuEngine.lib;opengl32.lib;CORE_DB_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,6 +133,7 @@
     <ClCompile Include="SimpleTest\drawers\MouseDrawLine.cpp" />
     <ClCompile Include="SimpleTest\drawers\MultiLinesView.cpp" />
     <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp" />
+    <ClCompile Include="SimpleTest\ImageMagickExamples\SplitPicture.cpp" />
     <ClCompile Include="SimpleTest\triangles\Triangle.cpp" />
     <ClCompile Include="SimpleTest\triangles\TriView.cpp" />
   </ItemGroup>
