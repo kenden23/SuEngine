@@ -32,6 +32,9 @@
     <ClCompile Include="sugl\SuWin.cpp">
       <Filter>sugl</Filter>
     </ClCompile>
+    <ClCompile Include="event_sys\UpdatePlanner.cpp">
+      <Filter>event_sys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuEngine.h" />
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="sugl\SuWin.h">
       <Filter>sugl</Filter>
+    </ClInclude>
+    <ClInclude Include="event_sys\UpdatePlanner.h">
+      <Filter>event_sys</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

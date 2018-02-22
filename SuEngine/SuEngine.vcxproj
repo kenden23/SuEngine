@@ -126,6 +126,7 @@
     <ClInclude Include="event_sys\EventsEnum.h" />
     <ClInclude Include="event_sys\EventSys.h" />
     <ClInclude Include="event_sys\FSM.h" />
+    <ClInclude Include="event_sys\UpdatePlanner.h" />
     <ClInclude Include="file\SuFile.h" />
     <ClInclude Include="render\GLProgram.h" />
     <ClInclude Include="SuEngine.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="controllers\Camera.cpp" />
     <ClCompile Include="event_sys\CListener.cpp" />
     <ClCompile Include="event_sys\EventSys.cpp" />
+    <ClCompile Include="event_sys\UpdatePlanner.cpp" />
     <ClCompile Include="file\SuFile.cpp" />
     <ClCompile Include="render\GLProgram.cpp" />
     <ClCompile Include="SuEngine.cpp" />
