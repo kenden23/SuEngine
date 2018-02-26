@@ -133,6 +133,7 @@
     <ClInclude Include="sugl\SuGlFunc.h" />
     <ClInclude Include="sugl\SuGlfw.h" />
     <ClInclude Include="sugl\SuWin.h" />
+    <ClInclude Include="sugl\Texture.h" />
     <ClInclude Include="util\glmex.h" />
     <ClInclude Include="util\Macro.h" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClCompile Include="sugl\SuGlFunc.cpp" />
     <ClCompile Include="sugl\SuGlfw.cpp" />
     <ClCompile Include="sugl\SuWin.cpp" />
+    <ClCompile Include="sugl\Texture.cpp" />
     <ClCompile Include="util\glmex.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

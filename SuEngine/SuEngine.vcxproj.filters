@@ -35,6 +35,9 @@
     <ClCompile Include="event_sys\UpdatePlanner.cpp">
       <Filter>event_sys</Filter>
     </ClCompile>
+    <ClCompile Include="sugl\Texture.cpp">
+      <Filter>sugl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuEngine.h" />
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="event_sys\UpdatePlanner.h">
       <Filter>event_sys</Filter>
+    </ClInclude>
+    <ClInclude Include="sugl\Texture.h">
+      <Filter>sugl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

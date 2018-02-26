@@ -60,5 +60,18 @@ SU_API char * read(const char *fileName)
 	return tmp;
 }
 
+SU_API ReadFileResultCode readImage_BMP(SimpleImageInfo &outInfo, const char * fileName)
+{
+	unsigned char header[54] = {0};
+	unsigned int dataPos = 0;
+	unsigned int imageSize = 0;
+	FILE *fp = fopen(fileName, "rb");
+	if (!fp)
+	{
+		return ReadFileResultCode::CannotOpenOrNoSuchFile;
+	}
+
+}
+
 }
 }

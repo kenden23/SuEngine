@@ -29,6 +29,34 @@ THE SOFTWARE.
 namespace Su
 {
 
+enum class ReadFileResultCode
+{
+	ReadFileResultNull,
+	CannotOpenOrNoSuchFile,
+	IncorrectFileFormat,
+	CorruptFile,
+};
+
+struct SimpleImageInfo
+{
+	unsigned int width, height;
+	// allocate memory by alloc, and free by SimpleImageInfo destructor with free
+	void *data;
+	SimpleImageInfo() :width(0), height(0), data(nullptr)
+	{
+
+	}
+
+	~SimpleImageInfo()
+	{
+		if (data)
+		{
+			free(data);
+			data = nullptr;
+		}
+	}
+};
+
 namespace file
 {
 
@@ -36,6 +64,8 @@ bool SU_API read(std::string &outStr, const char *fileName);
 
 /// @return char *, memory is created by malloc, so free it with free(char *)
 SU_API char *read(const char *fileName);
+
+SU_API ReadFileResultCode readImage_BMP(SimpleImageInfo &outInfo, const char *fileName);
 
 }
 
