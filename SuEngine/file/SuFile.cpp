@@ -70,7 +70,32 @@ SU_API ReadFileResultCode readImage_BMP(SimpleImageInfo &outInfo, const char * f
 	{
 		return ReadFileResultCode::CannotOpenOrNoSuchFile;
 	}
-
+	bool readCode = (fread(header, 1, 54, fp) == 54 && header[0] == 'B' && header[1] == 'M');
+	//readCode = readCode && (*(int*)&(header[0x1E]) == 0);
+	//readCode = readCode && (*(int*)&(header[0x1C]) == 24);
+	if (!readCode)
+	{
+		fclose(fp);
+		return ReadFileResultCode::IncorrectFileFormat;
+	}
+	dataPos = *(int*)&(header[0x0A]);
+	imageSize = *(int*)&(header[0x22]);
+	outInfo.width = *(int*)&(header[0x12]);
+	outInfo.height = *(int*)&(header[0x16]);
+	if (imageSize < 1)
+	{
+		// 3 : one byte for each Red, Green and Blue component
+		imageSize = outInfo.width * outInfo.height * 3;
+	}
+	// The BMP header is done that way
+	if (0 == dataPos)
+	{
+		dataPos = 54;
+	}
+	outInfo.data = (void *)malloc(imageSize);
+	fread(outInfo.data, 1, imageSize, fp);
+	fclose(fp);
+	return ReadFileResultCode::ReadFileSuccessfully;
 }
 
 }

@@ -35,6 +35,7 @@ enum class ReadFileResultCode
 	CannotOpenOrNoSuchFile,
 	IncorrectFileFormat,
 	CorruptFile,
+	ReadFileSuccessfully,
 };
 
 struct SimpleImageInfo
