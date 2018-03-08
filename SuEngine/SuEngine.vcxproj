@@ -129,6 +129,7 @@
     <ClInclude Include="event_sys\UpdatePlanner.h" />
     <ClInclude Include="file\SuFile.h" />
     <ClInclude Include="render\GLProgram.h" />
+    <ClInclude Include="stb\stb_image.h" />
     <ClInclude Include="SuEngine.h" />
     <ClInclude Include="sugl\SuGlFunc.h" />
     <ClInclude Include="sugl\SuGlfw.h" />

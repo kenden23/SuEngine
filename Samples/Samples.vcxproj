@@ -134,6 +134,7 @@
     <ClCompile Include="SimpleTest\drawers\MultiLinesView.cpp" />
     <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp" />
     <ClCompile Include="SimpleTest\ImageMagickExamples\SplitPicture.cpp" />
+    <ClCompile Include="SimpleTest\texture_test\std_load_image_test.cpp" />
     <ClCompile Include="SimpleTest\triangles\Triangle.cpp" />
     <ClCompile Include="SimpleTest\triangles\TriView.cpp" />
   </ItemGroup>

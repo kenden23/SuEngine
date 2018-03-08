@@ -13,6 +13,9 @@
     <Filter Include="SimpleTest\ImageMagickExamples">
       <UniqueIdentifier>{aab8e689-954a-4479-98c2-8666c70a6651}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SimpleTest\texture_test">
+      <UniqueIdentifier>{28407ebd-6202-4930-a35d-88505789bcce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -33,6 +36,9 @@
     </ClCompile>
     <ClCompile Include="SimpleTest\ImageMagickExamples\SplitPicture.cpp">
       <Filter>SimpleTest\ImageMagickExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\texture_test\std_load_image_test.cpp">
+      <Filter>SimpleTest\texture_test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -86,6 +86,9 @@
     <ClInclude Include="sugl\Texture.h">
       <Filter>sugl</Filter>
     </ClInclude>
+    <ClInclude Include="stb\stb_image.h">
+      <Filter>stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="render">
@@ -108,6 +111,9 @@
     </Filter>
     <Filter Include="controller">
       <UniqueIdentifier>{f94aeacf-63a1-4d46-93ff-d298c405cdb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stb">
+      <UniqueIdentifier>{299b6c3f-9e2d-4c65-a478-1b5db71cc493}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
