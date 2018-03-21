@@ -81,11 +81,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;D:\cpp_projects\libraries\assimp-master\include;D:\cpp_projects\libraries\assimp-master\include;%(AdditionalIncludeDirectories);D:\cpp_projects\libraries\assimp-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;../Deps/glew;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32d.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;../Deps/glew;D:\cpp_projects\libraries\assimp-master\build\code\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32d.lib;glfw3.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -93,13 +93,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;D:\cpp_projects\OpenGL\ogldev-source\Include\ImageMagick-6;../Deps/glfw/deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Deps/glfw/include;../Deps/glm/glm;../SuEngine;../Deps/glew;D:\cpp_projects\libraries\assimp-master\include;../Deps/glfw/deps;D:\cpp_projects\libraries\assimp-master\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;D:\cpp_projects\OpenGL\ogldev-source\Lib;../Deps/glew;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32d.lib;glfw3.lib;SuEngine.lib;opengl32.lib;CORE_DB_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../Deps/glfw/build/x64/Debug;../bin;D:\cpp_projects\libraries\assimp-master\build\code\Debug;../Deps/glew;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32d.lib;glfw3.lib;SuEngine.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -135,8 +135,10 @@
     <ClCompile Include="SimpleTest\drawers\SegmentObj.cpp" />
     <ClCompile Include="SimpleTest\ImageMagickExamples\SplitPicture.cpp" />
     <ClCompile Include="SimpleTest\texture_test\std_load_image_test.cpp" />
+    <ClCompile Include="SimpleTest\texture_test\test2.cpp" />
     <ClCompile Include="SimpleTest\triangles\Triangle.cpp" />
     <ClCompile Include="SimpleTest\triangles\TriView.cpp" />
+    <ClCompile Include="SimpleTest\utile_test\CameraControlV2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTest\drawers\MouseDrawLine.h" />
@@ -144,6 +146,7 @@
     <ClInclude Include="SimpleTest\drawers\SegmentObj.h" />
     <ClInclude Include="SimpleTest\triangles\Triangle.h" />
     <ClInclude Include="SimpleTest\triangles\TriView.h" />
+    <ClInclude Include="SimpleTest\utile_test\CameraControlV2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

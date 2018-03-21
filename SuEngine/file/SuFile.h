@@ -23,6 +23,9 @@ THE SOFTWARE.
 #pragma once
 
 #include <string>
+#include <vector>
+
+#include "glm.hpp"
 
 #include "../SuEngine.h"
 
@@ -40,7 +43,7 @@ enum class ReadFileResultCode
 
 struct SimpleImageInfo
 {
-	unsigned int width, height;
+	unsigned int width, height, channel;
 	// allocate memory by alloc, and free by SimpleImageInfo destructor with free
 	void *data;
 	SimpleImageInfo() :width(0), height(0), data(nullptr)
@@ -67,6 +70,14 @@ bool SU_API read(std::string &outStr, const char *fileName);
 SU_API char *read(const char *fileName);
 
 SU_API ReadFileResultCode readImage_BMP(SimpleImageInfo &outInfo, const char *fileName);
+
+SU_API ReadFileResultCode readImage_stb(SimpleImageInfo &outInfo, const char *fileName);
+
+SU_API ReadFileResultCode readAssimpData(const char * path,
+	std::vector<unsigned short> & indices,
+	std::vector<glm::vec3> & vertices,
+	std::vector<glm::vec2> & uvs,
+	std::vector<glm::vec3> & normals);
 
 }
 

@@ -16,6 +16,12 @@
     <Filter Include="SimpleTest\texture_test">
       <UniqueIdentifier>{28407ebd-6202-4930-a35d-88505789bcce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SimpleTest\practice">
+      <UniqueIdentifier>{bae72d68-9d0c-4504-83a9-394d9d17e084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleTest\utils_test">
+      <UniqueIdentifier>{b1a2c3b7-73fa-4ae7-8f0e-8a4f249f57b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -40,6 +46,12 @@
     <ClCompile Include="SimpleTest\texture_test\std_load_image_test.cpp">
       <Filter>SimpleTest\texture_test</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleTest\texture_test\test2.cpp">
+      <Filter>SimpleTest\texture_test</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTest\utile_test\CameraControlV2.cpp">
+      <Filter>SimpleTest\utils_test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleTest\triangles\Triangle.h">
@@ -56,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="SimpleTest\drawers\SegmentObj.h">
       <Filter>SimpleTest\drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTest\utile_test\CameraControlV2.h">
+      <Filter>SimpleTest\utils_test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

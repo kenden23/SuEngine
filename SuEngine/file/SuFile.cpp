@@ -23,6 +23,13 @@ THE SOFTWARE.
 
 #include "SuFile.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "../stb/stb_image.h"
+
+#include "assimp/Importer.hpp"
+#include "assimp/scene.h"
+#include "assimp/postprocess.h"
+
 namespace Su
 {
 namespace file
@@ -95,6 +102,71 @@ SU_API ReadFileResultCode readImage_BMP(SimpleImageInfo &outInfo, const char * f
 	outInfo.data = (void *)malloc(imageSize);
 	fread(outInfo.data, 1, imageSize, fp);
 	fclose(fp);
+	return ReadFileResultCode::ReadFileSuccessfully;
+}
+
+SU_API ReadFileResultCode readImage_stb(SimpleImageInfo & outInfo, const char * fileName)
+{
+	int width, height, channels;
+	unsigned char *data = stbi_load(fileName, &width, &height, &channels, STBI_rgb_alpha);
+	outInfo.width = width;
+	outInfo.height = height;
+	outInfo.data = data;
+	outInfo.channel = channels;
+	//stbi_image_free(data);
+	return ReadFileResultCode::ReadFileSuccessfully;
+}
+
+SU_API ReadFileResultCode readAssimpData(const char * path,
+	std::vector<unsigned short>& indices,
+	std::vector<glm::vec3>& vertices,
+	std::vector<glm::vec2>& uvs,
+	std::vector<glm::vec3>& normals)
+{
+	Assimp::Importer importer;
+	const aiScene *scene = importer.ReadFile(path, 0);
+
+	if (!scene)
+	{
+		fprintf(stderr, importer.GetErrorString());
+		return ReadFileResultCode::CannotOpenOrNoSuchFile;
+	}
+
+	// OBJ files often has only one mesh
+	const aiMesh *mesh = scene->mMeshes[0];
+
+	// Fill vertices positions
+	vertices.reserve(mesh->mNumVertices);
+	for (int i = 0; i < mesh->mNumVertices; ++i)
+	{
+		aiVector3D &pos = mesh->mVertices[i];
+		vertices.push_back(glm::vec3(pos.x, pos.y, pos.z));
+	}
+
+	// Fill vertices texture coordinates
+	uvs.reserve(mesh->mNumVertices);
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
+		// Assume only 1 set of UV coords; AssImp supports 8 UV sets.
+		aiVector3D UVW = mesh->mTextureCoords[0][i]; 
+		uvs.push_back(glm::vec2(UVW.x, UVW.y));
+	}
+
+	// Fill vertices normals
+	normals.reserve(mesh->mNumVertices);
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
+		aiVector3D n = mesh->mNormals[i];
+		normals.push_back(glm::vec3(n.x, n.y, n.z));
+	}
+
+	// Fill face indices
+	indices.reserve(3 * mesh->mNumFaces);
+	for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
+		// Assume the model has only triangles.
+		indices.push_back(mesh->mFaces[i].mIndices[0]);
+		indices.push_back(mesh->mFaces[i].mIndices[1]);
+		indices.push_back(mesh->mFaces[i].mIndices[2]);
+	}
+
 	return ReadFileResultCode::ReadFileSuccessfully;
 }
 

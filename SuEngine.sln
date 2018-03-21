@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glfw", "..\..\OpenGL\glfw_s
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glm_dummy", "..\..\libraries\math\glm-0.9.8.5.tar\glm-0.9.8.5\build\glm\glm_dummy.vcxproj", "{FCB70DF6-EC8C-3178-8959-25D7E5739117}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "assimp", "..\..\libraries\assimp-master\build\code\assimp.vcxproj", "{A435FFEA-68C9-3106-9107-1FDA2EC2D124}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -89,6 +91,18 @@ Global
 		{FCB70DF6-EC8C-3178-8959-25D7E5739117}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{FCB70DF6-EC8C-3178-8959-25D7E5739117}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 		{FCB70DF6-EC8C-3178-8959-25D7E5739117}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Debug|x64.ActiveCfg = Debug|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Debug|x64.Build.0 = Debug|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Debug|x86.ActiveCfg = Debug|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.MinSizeRel|x86.ActiveCfg = MinSizeRel|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Release|x64.ActiveCfg = Release|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Release|x64.Build.0 = Release|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.Release|x86.ActiveCfg = Release|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,5 +110,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4A63948E-351C-3F21-9818-385DD28A1F60} = {8DD1C3B8-133B-42A8-9E88-A1AB92844F59}
 		{FCB70DF6-EC8C-3178-8959-25D7E5739117} = {8DD1C3B8-133B-42A8-9E88-A1AB92844F59}
+		{A435FFEA-68C9-3106-9107-1FDA2EC2D124} = {8DD1C3B8-133B-42A8-9E88-A1AB92844F59}
 	EndGlobalSection
 EndGlobal

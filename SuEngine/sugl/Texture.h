@@ -12,11 +12,10 @@ public:
 	
 	Texture2D(const std::string &fileName);
 	~Texture2D();
-	void use(GLenum textureUnit);
+	void use(GLenum textureUnit = GL_TEXTURE0);
 protected:
 
-	void loadPicToMem(Su::SimpleImageInfo &outInfo, const std::string &fileName);
-	void loadMenToGL(Su::SimpleImageInfo &inInfo);
+	void loadPicToGL(const std::string &fileName);
 
 	GLuint m_textureObject;
 };
